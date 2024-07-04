@@ -18,7 +18,6 @@ const client = new MongoClient(
 );
 
 // * Function to connect
-// * Dummy test
 
 const connectDb = async () => {
   try {

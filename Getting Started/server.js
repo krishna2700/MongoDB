@@ -41,11 +41,11 @@ const connectDB = async () => {
     //! Using insertMany
     // const results = await students.insertMany([
     //   {
-    //     name: "John",
-    //     age: 26,
-    //     grade: "B",
-    //     pass: false,
-    //     subjects: ["Chemistry", "Biology"],
+    //     name: "Krishna",
+    //     age: 24,
+    //     grade: "A",
+    //     pass: true,
+    //     subjects: ["JavaScript", "Java"],
     //   },
     //   {
     //     name: "Joseph",
@@ -91,26 +91,27 @@ const connectDB = async () => {
     // );
 
     //! findOneAndUpdate()
-    const result = await students.findOneAndUpdate(
-      { name: "Jade" },
-      { $set: { name: "Krishna" } }
-    );
+    // const result = await students.findOneAndUpdate(
+    //   { name: "Jade" },
+    //   { $set: { name: "Krishna" } }
+    // );
     // console.log(result);
 
     //!----DELETE OPERATIONS----
     //! deleteOne()
     // const result = await students.deleteOne({
-    //   name: "Emmanuel2",
+    //   name: "Krishna",
+    //   age: 27,
     // });
     // console.log(result);
     //! deleteMany()
     // const result = await students.deleteMany({
-    //   grade: "B",
+    //   grade: "A",
     // });
     // console.log(result);
     //! findOneAndDelete()
     // const result = await students.findOneAndDelete({
-    //   name: "Prince",
+    //   name: "Krishna",
     // });
     // console.log(result);
 
@@ -123,8 +124,8 @@ const connectDB = async () => {
     //   {
     //     insertOne: {
     //       document: {
-    //         name: "John",
-    //         age: 20,
+    //         name: "Krishna",
+    //         age: 24,
     //         grade: "A",
     //       },
     //     },
@@ -132,14 +133,14 @@ const connectDB = async () => {
     //   // update stage
     //   {
     //     updateOne: {
-    //       filter: { name: "John" },
-    //       update: { $set: { grade: "B" } },
+    //       filter: { name: "Joseph" },
+    //       update: { $set: { grade: "F" } },
     //     },
     //   },
     //   // delete stage
     //   {
     //     deleteOne: {
-    //       filter: { name: "John" },
+    //       filter: { name: "Prince" },
     //     },
     //   },
     // ];
@@ -163,7 +164,7 @@ const connectDB = async () => {
     //     isActive: true, // Boolean
     //   },
     // });
-    console.log(result);
+    // console.log(result);
   } catch (error) {
     console.log(error);
   }

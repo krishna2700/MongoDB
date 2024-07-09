@@ -23,6 +23,7 @@ const connectDB = async () => {
 
     // Collections
     const employees = database.collection("employees");
+    const books = database.collection("books");
     //  Create some documents
     // const employeesDocs = [
     //   { name: "Alice", age: 25, department: "HR" },
@@ -71,10 +72,60 @@ const connectDB = async () => {
     // const results = await employeesCursor.toArray();
     // console.log(results);
     // ? multiple conditions
-    const employeesCursor = employees.find({
-      age: { $gt: 30, $lte: 45 },
+    // const employeesCursor = employees.find({
+    //   age: { $gt: 30, $lte: 45 },
+    // });
+    // const results = await employeesCursor.toArray();
+    //  ! querying Logical operators with example of books
+    const booksDocs = [
+      {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        year: 1960,
+        genre: "Drama",
+      },
+      {
+        title: "The 1984",
+        author: "Geaorge Orwell",
+        year: 1949,
+        genre: "Dystopian",
+      },
+
+      {
+        title: "The Catcher in the Rye",
+        author: "JD",
+        year: 1951,
+        genre: "Drama",
+      },
+      {
+        title: "The Brave World",
+        author: "Huxley",
+        year: 1932,
+        genre: "Dysptopian",
+      },
+      {
+        title: "The Hobbit",
+        author: "J.R.R",
+        year: 1937,
+        genre: "Fantasy",
+      },
+    ];
+    // const result = await books.insertMany(booksDocs);
+    // console.log(result);
+    // ! logical operators
+    // ?  OR operator
+    // const booksCursor = books.find({
+    //   $or: [{ genre: "Fantasy" }, { year: { $lt: 1932 } }],
+    // });
+    // ?  AND operator
+    // const booksCursor = books.find({
+    //   $and: [{ genre: "Fantasy" }, { year: { $lt: 1950 } }],
+    // });
+    // ?  NOR operator
+    const booksCursor = books.find({
+      $nor: [{ genre: "Fantasy" }, { year: { $lt: 1950 } }],
     });
-    const results = await employeesCursor.toArray();
+    const results = await booksCursor.toArray();
     console.log(results);
   } catch (error) {
     console.log(error);

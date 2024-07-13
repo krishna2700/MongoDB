@@ -153,8 +153,152 @@ const newUser = new user({
 // findUsers();
 //  ! ==========Updating documents================
 //  ! .updateOne()
-
+// const updateDocument = async () => {
+//   try {
+//     const result = await user.updateOne(
+//       { username: "Krishna" },
+//       { $set: { username: "Krish" } }
+//     );
+//     console.log(result);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDocument();
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.updateOne(
+//       { username: "Krish" },
+//       {
+//         age: 25,
+//         isActive: false,
+//       },
+//       {
+//         new: true,
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
 //  ! .findByIdUpdate()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.findByIdAndUpdate(
+//       "668e05387062106dbcb09922",
+//       {
+//         age: 24,
+//         isActive: false,
+//         hobbies: ["Coding", "Cricket"],
+//       },
+//       {
+//         new: true,
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
 //  ! .findOneAndUpdate()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.findOneAndUpdate(
+//       { username: "Krish" },
+//       {
+//         age: 24,
+//         isActive: true,
+//       },
+//       {
+//         new: true,
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
+// ! ============ .Update Operators ==========
+//  ! $set() $unset()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.updateMany(
+//       { username: "Krishna" },
+//       {
+//         // $set: { username: "Krishna" },
+//         $unset: { address: 1 },
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
+//  ! $addToSet() $push()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.updateMany(
+//       { username: "Krishna" },
+//       {
+//         // $push: {
+//         //   address: { city: "Mumbai", postalCode: 400101, street: "ABC" },
+//         // },
+//         $addToSet: { hobbies: ["Swimming"] },
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
+// ! $inc() $mull()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.updateMany(
+//       { username: "Krishna" },
+//       {
+//         // $inc: { age: 1 },
+//         $mul: { age: 2 },
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
+//  ! $pop() $pull()
+// const updateDoc = async () => {
+//   try {
+//     const updatedDocument = await user.updateMany(
+//       { username: "Krishna" },
+//       {
+//         // $pop: { address: -1 },
+//         $pull: { hobbies: "Cooking" },
+//       }
+//     );
+//     console.log(updatedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateDoc();
+
+// !  ======= Delete Documents ========
+const deleteDoc = async () => {
+  try {
+    const deletedDocument = await user.deleteMany({ username: "Krishna" });
+    console.log(deletedDocument);
+  } catch (error) {
+    console.log(error);
+  }
+};
+deleteDoc();
 // Start the server
 app.listen(PORT, console.log(`The server is up and running on port ${PORT}`));

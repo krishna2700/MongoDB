@@ -91,49 +91,70 @@ const newUser = new user({
 //   });
 
 // *.insertMany()
-user
-  .insertMany([
-    {
-      username: "Ruparelia",
-      age: 24,
-      birthday: new Date("2000-07-02"),
-      isActive: true,
-      hobbies: ["Coding", "Cooking", "Reading"],
-      address: {
-        street: "Main St",
-        city: "Boston",
-        postalCode: 1234,
-      },
-      customData: {
-        country: "USA",
-        state: "MA",
-        zip: 1234,
-      },
-    },
-    {
-      username: "Krishna Das",
-      age: 24,
-      birthday: new Date("2000-07-02"),
-      isActive: true,
-      hobbies: ["Coding", "Cooking", "Reading"],
-      address: {
-        street: "Main St",
-        city: "Boston",
-        postalCode: 1234,
-      },
-      customData: {
-        country: "USA",
-        state: "MA",
-        zip: 1234,
-      },
-    },
-  ])
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+//
 
+// ! ===============Read Operations=====================
+//  !.find()
+// user
+//   .find()
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+// ! .findONe()
+// user
+//   .findOne({ age: 24 })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+// ! .findById()
+// user.findById("633d0a0c6b7f7a9b8a3b8b8b");
+
+// !========.where()==========
+// const findUsers = async () => {
+//   try {
+//     const users = await user.find().where("age").gte(23);
+//     console.log(users);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// findUsers();
+// !========.sort()==========
+// const findUsers = async () => {
+//   try {
+//     const users = await user.find().where("age").gte(23).sort({ username: +1 });
+//     console.log(users);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// findUsers();
+// !========.limit()==========
+
+// const findUsers = async () => {
+//   try {
+//     const users = await user
+//       .find()
+//       .where("age")
+//       .gte(23)
+//       .sort({ username: +1 })
+//       .limit(1);
+//     console.log(users);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// findUsers();
+//  ! ==========Updating documents================
+//  ! .updateOne()
+
+//  ! .findByIdUpdate()
+//  ! .findOneAndUpdate()
 // Start the server
 app.listen(PORT, console.log(`The server is up and running on port ${PORT}`));

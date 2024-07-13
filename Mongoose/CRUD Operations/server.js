@@ -291,9 +291,19 @@ const newUser = new user({
 // updateDoc();
 
 // !  ======= Delete Documents ========
+// const deleteDoc = async () => {
+//   try {
+//     const deletedDocument = await user.deleteMany({ username: "Krishna" });
+//     console.log(deletedDocument);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// deleteDoc();
+//  delete all
 const deleteDoc = async () => {
   try {
-    const deletedDocument = await user.deleteMany({ username: "Krishna" });
+    const deletedDocument = await user.deleteMany({});
     console.log(deletedDocument);
   } catch (error) {
     console.log(error);
